@@ -1,0 +1,49 @@
+
+<ion-content class="ion-padding">
+  <ion-grid>
+
+    <form (ngSubmit)="login()" [formGroup]="loginform">
+      <ion-row class="ion-justify-content-center">
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div class="logo">
+            <img src="../../assets/images/infidia-new.png" alt="Infidia">
+          </div> 
+          <div padding>
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="text" placeholder="Username" formControlName="email">
+              </ion-input>
+            </ion-item>
+    
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="password" placeholder="Password" formControlName="password">
+              </ion-input>
+            </ion-item>
+            <ion-item class="ion-no-padding" lines="none">
+              <ion-label class="ion-no-margin ion-text-end" slot="end">Forgot Password</ion-label>
+            </ion-item>
+          </div>
+          <ion-fab  horizontal="center" class="ion-margin-top">
+            <ion-fab-button color="danger">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+          <ion-fab horizontal="center" class="ion-margin-top">
+            <ion-button type="submit" color="danger" [disabled]="!loginform.valid">
+              <ion-fab-button color="danger">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-button>
+          </ion-fab>
+    
+        </ion-col>
+      </ion-row>
+    </form>
+
+  </ion-grid>
+
+</ion-content>
+<ion-footer class="ion-no-border transparent">
+  <ion-toolbar class="ion-text-center">      
+    <span class="alreadyVerified" [routerLink]="'/mobile-login'">Create a new account</span>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-segment color="danger" scrollable value="new">
+    <ion-segment-button value="new" layout="icon-end" (click)="getNewOrders()">
+      <ion-badge color="success" *ngIf="orderBatchs.new">{{orderBatchs.new}}</ion-badge>
+      <ion-label>New</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="process" layout="icon-end" (click)="getProcessingOrders()">
+      <ion-badge color="success" *ngIf="orderBatchs.processing">{{orderBatchs.processing}}</ion-badge>
+      <ion-label>Process</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="delivered" layout="icon-end" (click)="getDeliveredOrders()">
+      <ion-badge color="success" *ngIf="orderBatchs.delivered">{{orderBatchs.delivered}}</ion-badge>
+      <ion-label>History</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-list>
+    <ion-item *ngFor="let order of orders">
+      <ion-label (click)="orderDetail(order.id)">
+        <h2>{{order.order_id}}</h2>
+        <h3>{{order.created_at}}</h3>
+        <p>Totel Item: {{order.total_item}}  |  <i class="fas fa-rupee-sign"></i> {{order.total_amount}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!orders || orders.length <= 0" class="no-item-found">
+    No record found
+  </div>
+
+</ion-content>
+
+<app-tabs></app-tabs>

@@ -1,0 +1,8 @@
+{
+  "name": "infidia-seller",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
